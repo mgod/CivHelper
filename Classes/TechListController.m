@@ -11,7 +11,6 @@
 
 @implementation TechListController
 
-
 #pragma mark -
 #pragma mark Initialization
 

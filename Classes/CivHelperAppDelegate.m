@@ -8,6 +8,7 @@
 
 #import "CivHelperAppDelegate.h"
 #import "TechListController.h"
+#import "TechDetailView.h"
 
 @implementation CivHelperAppDelegate
 
@@ -17,15 +18,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     _splitViewController = [[UISplitViewController alloc] init];
-    UIViewController *tempView = [[[TechListController alloc] init] autorelease];
-    tempView.view.backgroundColor = [UIColor purpleColor];
     _splitViewController.viewControllers = [NSArray arrayWithObjects:
                                             [[[TechListController alloc] init] autorelease],
-                                            tempView, nil];
-    _splitViewController.view.backgroundColor = [UIColor greenColor];
+                                            [[[TechDetailView alloc] init] autorelease], nil];
+
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]]; 
 	[_window addSubview:_splitViewController.view];
-    _window.backgroundColor = [UIColor blueColor];
     [_window makeKeyAndVisible];
 	
 	return YES;
