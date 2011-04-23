@@ -50,11 +50,13 @@ typedef enum {
 + (id)techWithName:(TechName)techName;
 - (NSInteger)priceWithPurchases:(NSArray *)ownedTechs;
 + (NSArray *)techList;
-- (NSArray *)filteredList:(NSArray *)list ByType:(TechType)techType
+- (NSArray *)filteredList:(NSArray *)list ByType:(TechType)techType;
 
 @property (readonly,nonatomic) TechName techName;
 @property (readonly,nonatomic) NSString *name;
 @property (readonly,nonatomic) NSArray *types;
 @property (readonly,nonatomic) NSInteger price;
+@property (readonly,nonatomic) UIColor *primaryColor;
+@property (readonly,nonatomic) UIColor *secondaryColor;
 
 @end

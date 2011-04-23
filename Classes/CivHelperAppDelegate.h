@@ -12,7 +12,7 @@
 
 @interface CivHelperAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *_window;
-	UISplitViewController *_splitViewController;
+	UIViewController *_splitViewController;
 }
 
 @end

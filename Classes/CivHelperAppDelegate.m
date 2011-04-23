@@ -7,8 +7,7 @@
 //
 
 #import "CivHelperAppDelegate.h"
-#import "TechListController.h"
-#import "TechDetailView.h"
+#import "CHMainViewController.h"
 
 @implementation CivHelperAppDelegate
 
@@ -17,15 +16,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-    _splitViewController = [[UISplitViewController alloc] init];
-    _splitViewController.viewControllers = [NSArray arrayWithObjects:
-                                            [[[TechListController alloc] init] autorelease],
-                                            [[[TechDetailView alloc] init] autorelease], nil];
+    CGRect frame = [[UIScreen mainScreen] applicationFrame];
+    frame.origin = CGPointMake(0, 0);
 
-    _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]]; 
+    _splitViewController = [[CHMainViewController alloc] init];
+
+    _window = [[UIWindow alloc] initWithFrame:frame]; 
 	[_window addSubview:_splitViewController.view];
     [_window makeKeyAndVisible];
-	
+	    
 	return YES;
 }
 

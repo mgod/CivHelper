@@ -7,32 +7,10 @@
 //
 
 #import "TechListController.h"
-
+#import "Tech.h"
+#import "TechTableViewCell.h"
 
 @implementation TechListController
-
-#pragma mark -
-#pragma mark Initialization
-
-
-- (id)initWithStyle:(UITableViewStyle)style {
-    // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-    self = [super initWithStyle:style];
-    if (self) {
-        self.tableView = [[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 600) style:style] autorelease];
-        self.tableView.backgroundColor = [UIColor yellowColor];
-        
-        _techs = [[NSArray alloc] initWithObjects:
-                  @"Metalworking",
-                  @"Mining",
-                  @"Agriculture",
-                  nil];
-        [self.tableView reloadData];
-    }
-    return self;
-}
-
-
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -43,6 +21,10 @@
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+    
+    _techs = [Tech techList];
+    
+    self.tableView.backgroundColor = [UIColor clearColor];
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -97,12 +79,12 @@
     
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    TechTableViewCell *cell = (TechTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[TechTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    cell.text = [_techs objectAtIndex:indexPath.row];
+    cell.tech = [_techs objectAtIndex:indexPath.row];
     
     return cell;
 }

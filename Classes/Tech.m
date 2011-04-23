@@ -52,36 +52,6 @@ static NSArray *techList;
     return techList;
 }
 
-- (NSInteger)priceWithPurchases:(NSArray *)ownedTechs {
-    /*switch (_techName) {
-        case Pottery:
-        case ClothMaking:
-        case Metalworking:
-        case Agriculture:
-        case Roadbuilding:
-        case Mining:
-        case Engineering:
-        case Astronomy:
-        case Coinage:
-        case Medicine:
-        case Mathematics:
-        case DramaPoetry:
-        case Music:
-        case Architecture:
-        case Literacy:
-        case Law:
-        case Democracy:
-        case Military:
-        case Philosophy:
-        case Mysticism:
-        case Deism:
-        case Enlightenment:
-        case Monotheism:
-        case Theology:
-    };*/
-    return 0;
-}
-
 - (NSString *)name {
     switch (_techName) {
         case Pottery:
@@ -137,9 +107,147 @@ static NSArray *techList;
     return nil;
 }
 
+- (NSArray *)types; {
+    switch (_techName) {
+        case Pottery:
+        case ClothMaking:
+        case Metalworking:
+        case Agriculture:
+        case Roadbuilding:
+        case Mining:
+            return [NSArray arrayWithObject:[NSNumber numberWithInt:Craft]];
+        case Engineering:
+            return [NSArray arrayWithObjects:[NSNumber numberWithInt:Science],
+                    [NSNumber numberWithInt:Craft], nil];
+        case Astronomy:
+        case Coinage:
+        case Medicine:
+            return [NSArray arrayWithObject:[NSNumber numberWithInt:Science]];
+        case Mathematics:
+            return [NSArray arrayWithObjects:[NSNumber numberWithInt:Art],
+                    [NSNumber numberWithInt:Science], nil];
+        case DramaPoetry:
+        case Music:
+        case Architecture:
+            return [NSArray arrayWithObject:[NSNumber numberWithInt:Art]];
+        case Literacy:
+            return [NSArray arrayWithObjects:[NSNumber numberWithInt:Civic],
+                    [NSNumber numberWithInt:Art], nil];
+        case Law:
+        case Democracy:
+        case Military:
+        case Philosophy:
+            return [NSArray arrayWithObject:[NSNumber numberWithInt:Civic]];
+        case Mysticism:
+            return [NSArray arrayWithObjects:[NSNumber numberWithInt:Religion],
+                    [NSNumber numberWithInt:Art], nil];
+        case Deism:
+        case Enlightenment:
+        case Monotheism:
+        case Theology:
+            return [NSArray arrayWithObject:[NSNumber numberWithInt:Religion]];
+    }
+    
+    return nil;
+}
+
+- (NSInteger) price; {
+    /*
+    switch (_techName) {
+        case Pottery:
+        case ClothMaking:
+        case Metalworking:
+        case Agriculture:
+        case Roadbuilding:
+        case Mining:
+        case Engineering:
+        case Astronomy:
+        case Coinage:
+        case Medicine:
+        case Mathematics:
+        case DramaPoetry:
+        case Music:
+        case Architecture:
+        case Literacy:
+        case Law:
+        case Democracy:
+        case Military:
+        case Philosophy:
+        case Mysticism:
+        case Deism:
+        case Enlightenment:
+        case Monotheism:
+        case Theology:
+    }*/
+
+    return 0;
+}
+
+- (UIColor *)colorForType:(TechType)techType {
+    switch (techType) {
+        case Craft:
+            return [UIColor orangeColor];
+        case Science:
+            return [UIColor greenColor];
+        case Art:
+            return [UIColor blueColor];
+        case Civic:
+            return [UIColor redColor];
+        case Religion:
+            return [UIColor yellowColor];
+    }
+
+    return nil;
+}
+
+- (UIColor *)primaryColor {
+    return [self colorForType:[[self.types objectAtIndex:0] intValue]];
+}
+
+
+- (UIColor *)secondaryColor; {
+    if (self.types.count > 1) {
+        return [self colorForType:[[self.types objectAtIndex:1] intValue]];
+    }
+    
+    return nil;
+}
+
 #pragma mark -
 #pragma mark Utility methods
 
+    
+- (NSInteger)priceWithPurchases:(NSArray *)ownedTechs {
+    /*switch (_techName) {
+     case Pottery:
+     case ClothMaking:
+     case Metalworking:
+     case Agriculture:
+     case Roadbuilding:
+     case Mining:
+     case Engineering:
+     case Astronomy:
+     case Coinage:
+     case Medicine:
+     case Mathematics:
+     case DramaPoetry:
+     case Music:
+     case Architecture:
+     case Literacy:
+     case Law:
+     case Democracy:
+     case Military:
+     case Philosophy:
+     case Mysticism:
+     case Deism:
+     case Enlightenment:
+     case Monotheism:
+     case Theology:
+     };*/
+    return 0;
+}
+    
+    
 - (NSArray *)filteredList:(NSArray *)list ByType:(TechType)techType {
     
     return [list filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"%@ in types", techType]];
