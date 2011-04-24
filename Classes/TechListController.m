@@ -9,6 +9,7 @@
 #import "TechListController.h"
 #import "Tech.h"
 #import "TechTableViewCell.h"
+#import "CHGameManager.h"
 
 @implementation TechListController
 
@@ -24,7 +25,7 @@
     
     _techs = [Tech techList];
     
-    self.tableView.backgroundColor = [UIColor clearColor];
+    //self.tableView.backgroundColor = [UIColor clearColor];
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -83,10 +84,14 @@
     if (cell == nil) {
         cell = [[[TechTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-    
+
     cell.tech = [_techs objectAtIndex:indexPath.row];
     
     return cell;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleNone;
 }
 
 
@@ -134,14 +139,15 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-    // ...
-    // Pass the selected object to the new view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
-    [detailViewController release];
-	 */
+    Tech *tech = [_techs objectAtIndex:indexPath.row];
+    if ([[CHGameManager ownedTechs] containsObject:tech]) {
+        [CHGameManager sellTech:tech];
+    } else {
+        [CHGameManager buyTech:tech];
+    }
+    
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] 
+                  withRowAnimation:UITableViewRowAnimationNone];
 }
 
 

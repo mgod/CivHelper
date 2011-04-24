@@ -16,6 +16,7 @@
 		751833A9133FB7500048AA1D /* TechDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 751833A8133FB7500048AA1D /* TechDetailView.m */; };
 		754FE0AD13635DEA0060B0AC /* CHMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 754FE0AC13635DEA0060B0AC /* CHMainViewController.m */; };
 		754FE0E71363662A0060B0AC /* TechTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754FE0E61363662A0060B0AC /* TechTableViewCell.m */; };
+		754FE2161363A67E0060B0AC /* CHGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 754FE2151363A67E0060B0AC /* CHGameManager.m */; };
 		755A31C7133EEF28000A4488 /* TechListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 755A31C6133EEF28000A4488 /* TechListController.m */; };
 		755A31CA133EF00B000A4488 /* Tech.m in Sources */ = {isa = PBXBuildFile; fileRef = 755A31C9133EF00B000A4488 /* Tech.m */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,8 @@
 		754FE0AC13635DEA0060B0AC /* CHMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMainViewController.m; sourceTree = "<group>"; };
 		754FE0E51363662A0060B0AC /* TechTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TechTableViewCell.h; sourceTree = "<group>"; };
 		754FE0E61363662A0060B0AC /* TechTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TechTableViewCell.m; sourceTree = "<group>"; };
+		754FE2141363A67E0060B0AC /* CHGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGameManager.h; sourceTree = "<group>"; };
+		754FE2151363A67E0060B0AC /* CHGameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGameManager.m; sourceTree = "<group>"; };
 		755A31C5133EEF28000A4488 /* TechListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TechListController.h; sourceTree = "<group>"; };
 		755A31C6133EEF28000A4488 /* TechListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TechListController.m; sourceTree = "<group>"; };
 		755A31C8133EF00B000A4488 /* Tech.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tech.h; sourceTree = "<group>"; };
@@ -61,6 +64,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				754FE2141363A67E0060B0AC /* CHGameManager.h */,
+				754FE2151363A67E0060B0AC /* CHGameManager.m */,
 				754FE0AB13635DEA0060B0AC /* CHMainViewController.h */,
 				754FE0AC13635DEA0060B0AC /* CHMainViewController.m */,
 				1D3623240D0F684500981E51 /* CivHelperAppDelegate.h */,
@@ -192,6 +197,7 @@
 				751833A9133FB7500048AA1D /* TechDetailView.m in Sources */,
 				754FE0AD13635DEA0060B0AC /* CHMainViewController.m in Sources */,
 				754FE0E71363662A0060B0AC /* TechTableViewCell.m in Sources */,
+				754FE2161363A67E0060B0AC /* CHGameManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

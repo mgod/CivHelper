@@ -8,6 +8,7 @@
 
 #import "TechTableViewCell.h"
 #import "Tech.h"
+#import "CHGameManager.h"
 
 static CGFloat kCellWidth = 320.0;
 static CGFloat kCellHeight = 44.0;
@@ -30,7 +31,7 @@ static CGFloat kCellHeight = 44.0;
         
         //self.textLabel.textColor = [UIColor whiteColor];
         self.textLabel.backgroundColor = [UIColor clearColor];
-        self.textLabel.font = [UIFont boldSystemFontOfSize:20.0];        
+        self.textLabel.font = [UIFont boldSystemFontOfSize:20.0];  
     }
     
     return self;
@@ -41,7 +42,6 @@ static CGFloat kCellHeight = 44.0;
         [_tech release];
         _tech = [tech retain];
         
-        _priceLabel.text = [[NSNumber numberWithInt:_tech.price] stringValue];
         self.textLabel.text = _tech.name;
         self.contentView.backgroundColor = self.tech.primaryColor;
         if (self.tech.secondaryColor) {
@@ -55,6 +55,15 @@ static CGFloat kCellHeight = 44.0;
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    
+    if ([[CHGameManager ownedTechs] containsObject:_tech]) {
+        _priceLabel.text = @"Owned";
+        _priceLabel.textColor = [UIColor darkGrayColor];
+    } else {
+        _priceLabel.text = [NSString stringWithFormat:@"(%i) %i", _tech.price,
+                            [_tech priceWithPurchases:[CHGameManager ownedTechs]]];
+        _priceLabel.textColor = [UIColor blackColor];
+    }
     
     [_priceLabel sizeToFit];
     CGRect frame = _priceLabel.frame;

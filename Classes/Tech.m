@@ -12,7 +12,7 @@ static NSArray *techList;
 
 @implementation Tech
 
-@synthesize techName=_techName, name=_name, types=_types, price=_price;
+@synthesize techName=_techName;
 
 + (id)techWithName:(TechName)name {
     Tech *tech = [[Tech alloc] init];
@@ -102,9 +102,9 @@ static NSArray *techList;
             return @"Monotheism";
         case Theology:
             return @"Theology";
-    };
-    
-    return nil;
+        default:
+            return nil;
+    }
 }
 
 - (NSArray *)types; {
@@ -146,41 +146,64 @@ static NSArray *techList;
         case Monotheism:
         case Theology:
             return [NSArray arrayWithObject:[NSNumber numberWithInt:Religion]];
+        default:
+            return nil;
     }
-    
-    return nil;
 }
 
 - (NSInteger) price; {
-    /*
     switch (_techName) {
         case Pottery:
+            return 45;
         case ClothMaking:
+            return 45;
         case Metalworking:
+            return 80;
         case Agriculture:
+            return 110;
         case Roadbuilding:
+            return 140;
         case Mining:
+            return 180;
         case Engineering:
+            return 140;
         case Astronomy:
+            return 80;
         case Coinage:
+            return 110;
         case Medicine:
+            return 140;
         case Mathematics:
+            return 230;
         case DramaPoetry:
+            return 60;
         case Music:
+            return 60;
         case Architecture:
+            return 120;
         case Literacy:
+            return 110;
         case Law:
+            return 170;
         case Democracy:
+            return 200;
         case Military:
+            return 180;
         case Philosophy:
+            return 240;
         case Mysticism:
+            return 50;
         case Deism:
+            return 80;
         case Enlightenment:
+            return 150;
         case Monotheism:
+            return 220;
         case Theology:
-    }*/
-
-    return 0;
+            return 250;
+        default:
+            return 0;
+    }
 }
 
 - (UIColor *)colorForType:(TechType)techType {
@@ -195,9 +218,9 @@ static NSArray *techList;
             return [UIColor redColor];
         case Religion:
             return [UIColor yellowColor];
+        default:
+            return nil;
     }
-
-    return nil;
 }
 
 - (UIColor *)primaryColor {
@@ -213,44 +236,121 @@ static NSArray *techList;
     return nil;
 }
 
+- (NSInteger)priceWithPurchases:(NSArray *)ownedTechs {
+    NSInteger aPrice = self.price;
+    switch (_techName) {
+        case Pottery:
+        case ClothMaking:
+        case Metalworking:
+        case Agriculture:
+        case Roadbuilding:
+        case Mining:
+            aPrice -= [Tech filteredList:ownedTechs byType:Craft excludeTech:self].count * 10;
+            break;
+        case Engineering:
+            aPrice -= [Tech filteredList:ownedTechs byType:Craft excludeTech:self].count * 10;
+            if ([ownedTechs containsObject:[Tech techWithName:Roadbuilding]])
+                aPrice -= 10;
+            if ([ownedTechs containsObject:[Tech techWithName:Mining]])
+                aPrice -= 10;
+            //Engineering also gets sceince credits
+        case Astronomy:
+        case Coinage:
+        case Medicine:
+            aPrice -= [Tech filteredList:ownedTechs byType:Science excludeTech:self].count * 20;
+            break;
+        case Mathematics:
+            aPrice -= [Tech filteredList:ownedTechs byType:Science excludeTech:self].count * 20;
+            if ([ownedTechs containsObject:[Tech techWithName:Music]])
+                aPrice -= 15; //5 more will be taken off below
+        case Literacy:
+            if ([ownedTechs containsObject:[Tech techWithName:DramaPoetry]] &&
+                self.techName != Mathematics)
+                aPrice -= 15; //5 more will get taken off below
+        case DramaPoetry:
+        case Music:
+        case Architecture:
+        case Mysticism:
+            aPrice -= [Tech filteredList:ownedTechs byType:Art excludeTech:self].count * 5;
+            break;
+        case Law:
+            if ([ownedTechs containsObject:[Tech techWithName:Mathematics]])
+                aPrice -= 5;
+            if ([ownedTechs containsObject:[Tech techWithName:DramaPoetry]])
+                aPrice -= 5;
+            if ([ownedTechs containsObject:[Tech techWithName:Music]])
+                aPrice -= 5;
+            if ([ownedTechs containsObject:[Tech techWithName:Architecture]])
+                aPrice -= 15;
+            if ([ownedTechs containsObject:[Tech techWithName:Literacy]])
+                aPrice -= 25;
+            break;
+        case Democracy:
+            aPrice -= [Tech filteredList:ownedTechs byType:Craft excludeTech:self].count * 10;
+            if ([ownedTechs containsObject:[Tech techWithName:DramaPoetry]])
+                aPrice -= 10;
+            if ([ownedTechs containsObject:[Tech techWithName:Music]])
+                aPrice -= 10;
+            if ([ownedTechs containsObject:[Tech techWithName:Architecture]])
+                aPrice -= 10;
+            if ([ownedTechs containsObject:[Tech techWithName:Literacy]])
+                aPrice -= 25;
+            break;
+        case Military:
+            if ([ownedTechs containsObject:[Tech techWithName:Metalworking]])
+                aPrice -= 20;
+            break;
+        case Philosophy:
+            aPrice -= [Tech filteredList:ownedTechs byType:Science excludeTech:self].count * 20;
+            if ([ownedTechs containsObject:[Tech techWithName:Mathematics]])
+                aPrice -= 5; //20 got taken off earlier
+            if ([ownedTechs containsObject:[Tech techWithName:Music]])
+                aPrice -= 20;
+            if ([ownedTechs containsObject:[Tech techWithName:Literacy]])
+                aPrice -= 25;
+            break;
+        case Deism:
+            if ([ownedTechs containsObject:[Tech techWithName:Mysticism]])
+                aPrice -= 15;
+            break;
+        case Enlightenment:
+            aPrice -= [Tech filteredList:ownedTechs byType:Art excludeTech:self].count * 10;
+            if ([ownedTechs containsObject:[Tech techWithName:Mysticism]])
+                aPrice -= 5; //10 got taken off above
+            if ([ownedTechs containsObject:[Tech techWithName:Deism]])
+                aPrice -= 15;
+            break;
+        case Monotheism:
+            aPrice -= [Tech filteredList:ownedTechs byType:Craft excludeTech:self].count * 10;
+            aPrice -= [Tech filteredList:ownedTechs byType:Religion excludeTech:self].count * 15;
+            if ([ownedTechs containsObject:[Tech techWithName:Theology]]) 
+                aPrice += 15; //we would have erronously discoujted for theology above
+            break;
+        case Theology:
+            aPrice -= [Tech filteredList:ownedTechs byType:Science excludeTech:self].count * 20;
+            if ([ownedTechs containsObject:[Tech techWithName:Mathematics]])
+                aPrice -= 5;
+            aPrice -= [Tech filteredList:ownedTechs byType:Religion excludeTech:self].count * 15;
+            if ([ownedTechs containsObject:[Tech techWithName:Monotheism]]) 
+                aPrice += 15; //we would have erronously discoujted for monotheism above
+            break;
+    }
+                        
+    return MAX(0, aPrice);
+}
+    
 #pragma mark -
 #pragma mark Utility methods
 
-    
-- (NSInteger)priceWithPurchases:(NSArray *)ownedTechs {
-    /*switch (_techName) {
-     case Pottery:
-     case ClothMaking:
-     case Metalworking:
-     case Agriculture:
-     case Roadbuilding:
-     case Mining:
-     case Engineering:
-     case Astronomy:
-     case Coinage:
-     case Medicine:
-     case Mathematics:
-     case DramaPoetry:
-     case Music:
-     case Architecture:
-     case Literacy:
-     case Law:
-     case Democracy:
-     case Military:
-     case Philosophy:
-     case Mysticism:
-     case Deism:
-     case Enlightenment:
-     case Monotheism:
-     case Theology:
-     };*/
-    return 0;
++ (NSArray *)filteredList:(NSArray *)list byType:(TechType)techType excludeTech:(Tech *)tech {
+    return [list filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"%@ in types AND techName != %@", 
+                                              [NSNumber numberWithInt:techType],
+                                              [NSNumber numberWithInt:tech.techName]]];
+
 }
-    
-    
-- (NSArray *)filteredList:(NSArray *)list ByType:(TechType)techType {
-    
-    return [list filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"%@ in types", techType]];
+
++ (NSArray *)filteredList:(NSArray *)list byType:(TechType)techType {
+    return [list filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"%@ in types", [NSNumber numberWithInt:techType]]];
 }
 
 - (BOOL)isEqual:(id)object{

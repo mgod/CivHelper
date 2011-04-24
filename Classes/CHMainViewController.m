@@ -19,7 +19,8 @@
     _detailViewController = [[TechDetailView alloc] init];
     _listViewController = [[TechListController alloc] init];
     
-    self.viewControllers = [NSArray arrayWithObjects:_listViewController, _detailViewController, nil];
+    self.viewControllers = [NSArray arrayWithObjects:[[[UINavigationController alloc] initWithRootViewController:_listViewController] autorelease], 
+                            _detailViewController, nil];
 }
 
 @end
