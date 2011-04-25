@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class Tech;
 
 @interface TechDetailView : UIViewController {
-
+    Tech *_tech;
 }
+
+@property (nonatomic,retain) Tech *tech;
 
 @end

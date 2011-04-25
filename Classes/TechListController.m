@@ -7,7 +7,7 @@
 //
 
 #import "TechListController.h"
-#import "Tech.h"
+#import "CHTech.h"
 #import "TechTableViewCell.h"
 #import "CHGameManager.h"
 
@@ -20,15 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    _techs = [Tech techList];
-    
-    //self.tableView.backgroundColor = [UIColor clearColor];
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    _techs = [CHGameManager techList];
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.tableView.allowsSelectionDuringEditing = YES;
+    self.tableView.backgroundColor = [UIColor darkGrayColor];
 }
 
 
@@ -139,7 +134,7 @@
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    Tech *tech = [_techs objectAtIndex:indexPath.row];
+    CHTech *tech = [_techs objectAtIndex:indexPath.row];
     if ([[CHGameManager ownedTechs] containsObject:tech]) {
         [CHGameManager sellTech:tech];
     } else {

@@ -11,6 +11,7 @@
 
 @interface TechListController : UITableViewController {
     NSArray *_techs;
+    NSArray *_editSelectionTechs;
 }
 
 @end

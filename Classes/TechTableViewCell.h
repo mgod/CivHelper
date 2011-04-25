@@ -8,15 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@class Tech;
+@class CHTech;
 
 @interface TechTableViewCell : UITableViewCell {
-    Tech *_tech;
+    CHTech *_tech;
     
     UILabel *_priceLabel;
     UIView *_secondColorView;
 }
 
-@property (nonatomic,retain) Tech *tech;
+@property (nonatomic,retain) CHTech *tech;
+
+- (BOOL)isOwned;
 
 @end

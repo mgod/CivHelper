@@ -7,16 +7,26 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@class Tech;
+@class CHTech, CHGame;
 
 @interface CHGameManager : NSObject {
-    NSMutableArray *_ownedTechs;
+    NSManagedObjectContext *_managedObjectContext;
+    NSManagedObjectModel *_managedObjectModel;
+    NSPersistentStoreCoordinator *_persistentStoreCoordinator;
+    
+    CHGame *_game;
+    NSArray *_techList;
 }
 
+//State change calls
++ (void)setGame:(NSString *)gameName;
+
++ (NSArray *)techList;
 + (NSArray *)ownedTechs;
 
-+ (void)buyTech:(Tech *)tech;
-+ (void)sellTech:(Tech *)tech;
++ (void)buyTech:(CHTech *)tech;
++ (void)sellTech:(CHTech *)tech;
 
 @end

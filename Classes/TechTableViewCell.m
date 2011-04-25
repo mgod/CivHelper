@@ -7,7 +7,7 @@
 //
 
 #import "TechTableViewCell.h"
-#import "Tech.h"
+#import "CHTech.h"
 #import "CHGameManager.h"
 
 static CGFloat kCellWidth = 320.0;
@@ -31,37 +31,49 @@ static CGFloat kCellHeight = 44.0;
         
         //self.textLabel.textColor = [UIColor whiteColor];
         self.textLabel.backgroundColor = [UIColor clearColor];
-        self.textLabel.font = [UIFont boldSystemFontOfSize:20.0];  
+        self.textLabel.font = [UIFont boldSystemFontOfSize:20.0];
+        
+        self.selectionStyle = UITableViewCellSelectionStyleGray;
     }
     
     return self;
 }
 
-- (void)setTech:(Tech *)tech {
+#pragma mark -
+#pragma mark tech management
+
+- (void)setTech:(CHTech *)tech {
     if (tech != _tech) {
         [_tech release];
         _tech = [tech retain];
         
-        self.textLabel.text = _tech.name;
-        self.contentView.backgroundColor = self.tech.primaryColor;
-        if (self.tech.secondaryColor) {
-            _secondColorView.backgroundColor = self.tech.secondaryColor;
-        } else {
-            _secondColorView.backgroundColor = self.tech.primaryColor;
-        }
+        self.textLabel.text = _tech.techName;
+        //self.contentView.backgroundColor = self.tech.primaryColor;
+        //if (self.tech.secondaryColor) {
+        //    _secondColorView.backgroundColor = self.tech.secondaryColor;
+        //} else {
+        //    _secondColorView.backgroundColor = self.tech.primaryColor;
+        //}
 
     }
 }
 
+- (BOOL)isOwned {
+    return [[CHGameManager ownedTechs] containsObject:_tech];
+}
+
+#pragma mark -
+#pragma mark view management
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    if ([[CHGameManager ownedTechs] containsObject:_tech]) {
+    if ([self isOwned]) {
         _priceLabel.text = @"Owned";
         _priceLabel.textColor = [UIColor darkGrayColor];
     } else {
-        _priceLabel.text = [NSString stringWithFormat:@"(%i) %i", _tech.price,
-                            [_tech priceWithPurchases:[CHGameManager ownedTechs]]];
+        //_priceLabel.text = [NSString stringWithFormat:@"(%i) %i", _tech.price,
+        //                    [_tech priceWithPurchases:[CHGameManager ownedTechs]]];
         _priceLabel.textColor = [UIColor blackColor];
     }
     
@@ -69,6 +81,11 @@ static CGFloat kCellHeight = 44.0;
     CGRect frame = _priceLabel.frame;
     frame.origin = CGPointMake(kCellWidth - 10 - frame.size.width, (kCellHeight - frame.size.height) / 2.0);
     _priceLabel.frame = frame;
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+    
 }
 
 @end

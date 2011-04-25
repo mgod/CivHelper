@@ -7,37 +7,20 @@
 //
 
 #import "TechDetailView.h"
-
+#import "CHTech.h"
 
 @implementation TechDetailView
 
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-/*
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization.
-    }
-    return self;
-}
-*/
+@synthesize tech=_tech;
 
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
+#pragma mark -
+#pragma mark View lifecycle
+
 - (void)loadView {
 }
-*/
-
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-*/
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Overriden to allow any orientation.
     return UIInterfaceOrientationIsLandscape(interfaceOrientation);
 }
 
@@ -52,8 +35,7 @@
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+
 }
 
 
@@ -61,5 +43,13 @@
     [super dealloc];
 }
 
+#pragma mark -
+#pragma mark display methods
+
+- (void)setTech:(Tech *)tech {
+    if (tech != _tech) {
+        
+    }
+}
 
 @end
