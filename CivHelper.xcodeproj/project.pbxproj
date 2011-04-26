@@ -45,7 +45,7 @@
 		754FE0E61363662A0060B0AC /* TechTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TechTableViewCell.m; sourceTree = "<group>"; };
 		754FE2141363A67E0060B0AC /* CHGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGameManager.h; sourceTree = "<group>"; };
 		754FE2151363A67E0060B0AC /* CHGameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGameManager.m; sourceTree = "<group>"; };
-		754FE3321364702E0060B0AC /* CivHelper.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = CivHelper.xcdatamodel; sourceTree = "<group>"; };
+		754FE3321364702E0060B0AC /* CivHelper.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; name = CivHelper.xcdatamodel; path = Resources/CivHelper.xcdatamodel; sourceTree = "<group>"; };
 		754FE4201364EA7F0060B0AC /* CHGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGame.h; sourceTree = "<group>"; };
 		754FE4211364EA7F0060B0AC /* CHGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGame.m; sourceTree = "<group>"; };
 		754FE4221364EA7F0060B0AC /* CHTech.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTech.h; sourceTree = "<group>"; };
@@ -59,7 +59,7 @@
 		754FE5011365E7610060B0AC /* CHTechType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTechType.m; sourceTree = "<group>"; };
 		755A31C5133EEF28000A4488 /* TechListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TechListController.h; sourceTree = "<group>"; };
 		755A31C6133EEF28000A4488 /* TechListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TechListController.m; sourceTree = "<group>"; };
-		8D1107310486CEB800E47090 /* CivHelper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CivHelper-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* CivHelper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "CivHelper-Info.plist"; path = "Resources/CivHelper-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,7 +287,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CivHelper_Prefix.pch;
-				INFOPLIST_FILE = "CivHelper-Info.plist";
+				INFOPLIST_FILE = "Resources/CivHelper-Info.plist";
 				PRODUCT_NAME = CivHelper;
 			};
 			name = Debug;
@@ -299,7 +299,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CivHelper_Prefix.pch;
-				INFOPLIST_FILE = "CivHelper-Info.plist";
+				INFOPLIST_FILE = "Resources/CivHelper-Info.plist";
 				PRODUCT_NAME = CivHelper;
 				VALIDATE_PRODUCT = YES;
 			};
