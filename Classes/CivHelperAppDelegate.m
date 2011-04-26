@@ -16,14 +16,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-    CGRect frame = [[UIScreen mainScreen] applicationFrame];
-    frame.origin = CGPointMake(0, 0);
-
-    _splitViewController = [[CHMainViewController alloc] init];
-
-    _window = [[UIWindow alloc] initWithFrame:frame]; 
-	[_window addSubview:_splitViewController.view];
+    //CGRect frame = [[UIScreen mainScreen] applicationFrame];
+    //frame.origin = CGPointMake(0, 0);
+    
+    _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [_window makeKeyAndVisible];
+    
+    _splitViewController = [[CHMainViewController alloc] init];
+	[_window addSubview:_splitViewController.view];
 	    
 	return YES;
 }

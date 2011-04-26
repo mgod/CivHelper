@@ -47,13 +47,13 @@ static CGFloat kCellHeight = 44.0;
         [_tech release];
         _tech = [tech retain];
         
-        self.textLabel.text = _tech.techName;
-        //self.contentView.backgroundColor = self.tech.primaryColor;
-        //if (self.tech.secondaryColor) {
-        //    _secondColorView.backgroundColor = self.tech.secondaryColor;
-        //} else {
-        //    _secondColorView.backgroundColor = self.tech.primaryColor;
-        //}
+        self.textLabel.text = [NSString stringWithFormat:@"%@ (%@)", _tech.techName, _tech.price];
+        self.contentView.backgroundColor = self.tech.primaryColor;
+        if (self.tech.secondaryColor) {
+            _secondColorView.backgroundColor = self.tech.secondaryColor;
+        } else {
+            _secondColorView.backgroundColor = self.tech.primaryColor;
+        }
 
     }
 }
@@ -72,8 +72,8 @@ static CGFloat kCellHeight = 44.0;
         _priceLabel.text = @"Owned";
         _priceLabel.textColor = [UIColor darkGrayColor];
     } else {
-        //_priceLabel.text = [NSString stringWithFormat:@"(%i) %i", _tech.price,
-        //                    [_tech priceWithPurchases:[CHGameManager ownedTechs]]];
+        _priceLabel.text = [NSString stringWithFormat:@"%i",
+                            [_tech priceWithPurchases:[CHGameManager ownedTechs]]];
         _priceLabel.textColor = [UIColor blackColor];
     }
     

@@ -10,11 +10,20 @@
 
 @class CHTech;
 
+typedef enum {
+    Craft = 0,
+    Science,
+    Art,
+    Civic,
+    Religion
+} TechType;
+
 @interface CHTechType :  NSManagedObject  
 {
 }
 
-@property (nonatomic, retain) NSNumber * techType;
+@property (nonatomic, assign) TechType techType;
+@property (nonatomic, readonly) NSString *typeName;
 @property (nonatomic, retain) CHTech * tech;
 
 @end

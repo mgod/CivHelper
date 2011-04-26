@@ -17,6 +17,12 @@
 #pragma mark View lifecycle
 
 - (void)loadView {
+    self.view = [[UIView alloc] initWithFrame:CGRectMake(320, 0, 704, 748)];
+    self.view.backgroundColor = [UIColor lightGrayColor];
+    
+    _techLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 500, 40)];
+    _techLabel.text = @"12345477657898-90-0 agsdhjkfasjhdg;lkjaks;dflajsdkl;fajskl;dfjk";
+    [self.view addSubview:_techLabel];
 }
 
 
@@ -46,7 +52,7 @@
 #pragma mark -
 #pragma mark display methods
 
-- (void)setTech:(Tech *)tech {
+- (void)setTech:(CHTech *)tech {
     if (tech != _tech) {
         
     }

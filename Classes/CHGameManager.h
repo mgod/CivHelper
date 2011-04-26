@@ -24,7 +24,7 @@
 + (void)setGame:(NSString *)gameName;
 
 + (NSArray *)techList;
-+ (NSArray *)ownedTechs;
++ (NSSet *)ownedTechs;
 
 + (void)buyTech:(CHTech *)tech;
 + (void)sellTech:(CHTech *)tech;

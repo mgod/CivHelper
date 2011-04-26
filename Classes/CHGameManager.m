@@ -94,8 +94,8 @@ static NSString *defaultGame = @"default";
     return mgr->_techList;
 }
 
-+ (NSArray *)ownedTechs {
-    return [[CHGameManager sharedInstance]->_game.techs allObjects];
++ (NSSet *)ownedTechs {
+    return [CHGameManager sharedInstance]->_game.techs;
 }
 
 + (void)buyTech:(CHTech *)tech; {
@@ -142,14 +142,14 @@ static NSString *defaultGame = @"default";
             CHTechType *techType = [NSEntityDescription insertNewObjectForEntityForName:@"CHTechType"
                                                                  inManagedObjectContext:ctx];
             techType.tech = [techs objectAtIndex:[[typeArr objectAtIndex:0] intValue]];
-            techType.techType = [typeArr objectAtIndex:1];
+            techType.techType = (TechType)[[typeArr objectAtIndex:1] intValue];
         }
         
         _game = [NSEntityDescription insertNewObjectForEntityForName:@"CHGame"
                                               inManagedObjectContext:[self managedObjectContext]];
         _game.name = defaultGame;
         
-        NSError *error;
+        NSError *error = nil;
         [[self managedObjectContext] save:&error];
         if (error) {
             NSLog(@"Unable to load tech data: %@", error);

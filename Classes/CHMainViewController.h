@@ -13,6 +13,9 @@
 @interface CHMainViewController : UISplitViewController {
     TechDetailView *_detailViewController;
     TechListController *_listViewController;
+    
+    UINavigationController *_listNavController;
+    UINavigationController *_detailNavController;
 }
 
 @end
