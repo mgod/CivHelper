@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class CHTech, CHGame;
+@class CHTech, CHGame, CHTradeCard;
 
 @interface CHGameManager : NSObject {
     NSManagedObjectContext *_managedObjectContext;
@@ -18,15 +18,22 @@
     
     CHGame *_game;
     NSArray *_techList;
+    NSArray *_tradeCardList;
 }
 
 //State change calls
 + (void)setGame:(NSString *)gameName;
 
+//Tech
 + (NSArray *)techList;
 + (NSSet *)ownedTechs;
-
 + (void)buyTech:(CHTech *)tech;
 + (void)sellTech:(CHTech *)tech;
+
+//Trade cards
++ (NSArray *)tradeCardList;
++ (NSInteger)countForTradeCard:(CHTradeCard *)card;
++ (void)addTradeCard:(CHTradeCard *)card;
++ (void)removeTradeCard:(CHTradeCard *)card;
 
 @end

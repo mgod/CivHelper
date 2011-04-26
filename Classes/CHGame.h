@@ -2,20 +2,25 @@
 //  CHGame.h
 //  CivHelper
 //
-//  Created by Marshall Weir on 4/24/11.
+//  Created by Marshall Weir on 4/26/11.
 //  Copyright 2011 Mobiata, LLC. All rights reserved.
 //
 
 #import <CoreData/CoreData.h>
 
-@class CHTech;
+@class CHTech, CHTradeCard;
 
 @interface CHGame :  NSManagedObject  
 {
 }
 
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSMutableArray *tradeCardCounts;
 @property (nonatomic, retain) NSSet* techs;
+
+- (void)addTradeCard:(CHTradeCard *)card;
+- (void)removeTradeCard:(CHTradeCard *)card;
+- (NSInteger)getCardCount:(CHTradeCard *)card;
 
 @end
 

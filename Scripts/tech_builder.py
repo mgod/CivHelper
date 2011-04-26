@@ -1,7 +1,5 @@
-import sqlite3
-import json
 
-tech_data = [
+data = [
     #Tech id, name, price, prereq, rules
     [0,"Pottery", 45, None, """"""],
     [1,"Cloth Making", 45, None, """"""],
@@ -29,7 +27,7 @@ tech_data = [
     [23,"Theology", 250, 21, """"""]
 ]
 
-tech_types = [
+types = [
     #0 = Craft
     #1 = Science
     #2 = Art
@@ -65,10 +63,10 @@ tech_types = [
     [23,4],
 ]
 
-tech_discounts = []
+discounts = []
 
 def techs_for_type(ttype):
-    for pair in tech_types:
+    for pair in types:
         if pair[1] == ttype:
             yield pair[0]
 
@@ -159,8 +157,8 @@ def load_discounts():
     
     #Flatten discounts
     for k, v in ddict.iteritems():
-        global tech_discounts
-        tech_discounts.append([k[0], k[1], v])
+        global discounts
+        discounts.append([k[0], k[1], v])
 load_discounts()
 
 def print_debug():
@@ -193,11 +191,3 @@ def print_debug():
             st += "%3s" % get_discount_for_pair(dt[0], tech[0])
         print "%20s %s %s" % (tech[1], st, type_for_tech(tech[0]))
 #print_debug()
-
-def build_json(path):
-    open(path, "w").write(json.dumps({
-        "techs": tech_data,
-        "discounts": tech_discounts,
-        "types": tech_types
-    }))
-

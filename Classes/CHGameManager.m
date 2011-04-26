@@ -11,6 +11,7 @@
 #import "CHTech.h"
 #import "CHTechDiscount.h"
 #import "CHTechType.h"
+#import "CHTradeCard.h"
 #import "JSONKit.h"
 
 static CHGameManager *sharedManagerInstance;
@@ -69,7 +70,12 @@ static NSString *defaultGame = @"default";
             NSLog(@"error: %@", error);
         }
         
-        _game = [[objects objectAtIndex:0] retain];
+        for (CHGame *game in objects) {
+            if ([game.name isEqualToString:gameName]) {
+                _game = [game retain];
+                break;
+            }
+        }
         NSLog(@"game: %@", _game);
     }
 }
@@ -77,6 +83,9 @@ static NSString *defaultGame = @"default";
 + (void)setGame:(NSString *)gameName; {
     [[CHGameManager sharedInstance] setGame:gameName];
 }
+
+#pragma mark -
+#pragma mark Tech management
 
 + (NSArray *)techList {
     CHGameManager *mgr = [CHGameManager sharedInstance];
@@ -106,6 +115,37 @@ static NSString *defaultGame = @"default";
 
 + (void)sellTech:(CHTech *)tech; {
     [[CHGameManager sharedInstance]->_game removeTechsObject:tech];
+}
+
+#pragma mark -
+#pragma mark Trade card management
+
++ (NSArray *)tradeCardList; {
+    CHGameManager *mgr = [CHGameManager sharedInstance];
+    if (!mgr->_tradeCardList || mgr->_tradeCardList.count == 0) {
+        NSError *error;
+        NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
+        NSEntityDescription *desc = [NSEntityDescription entityForName:@"CHTradeCard"
+                                                inManagedObjectContext:[mgr managedObjectContext]];
+        [fetch setEntity:desc];
+        NSArray *sort = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"tradeCardID" ascending:YES]];
+        [fetch setSortDescriptors:sort];
+        mgr->_tradeCardList = [[[mgr managedObjectContext] executeFetchRequest:fetch error:&error] retain];
+    }
+    
+    return mgr->_tradeCardList;
+}
+
++ (NSInteger)countForTradeCard:(CHTradeCard *)card; {
+    return [[CHGameManager sharedInstance]->_game getCardCount:card];
+}
+
++ (void)addTradeCard:(CHTradeCard *)card; {
+    return [[CHGameManager sharedInstance]->_game addTradeCard:card];
+}
+
++ (void)removeTradeCard:(CHTradeCard *)card; {
+    return [[CHGameManager sharedInstance]->_game removeTradeCard:card];
 }
 
 #pragma mark -
@@ -143,6 +183,15 @@ static NSString *defaultGame = @"default";
                                                                  inManagedObjectContext:ctx];
             techType.tech = [techs objectAtIndex:[[typeArr objectAtIndex:0] intValue]];
             techType.techType = (TechType)[[typeArr objectAtIndex:1] intValue];
+        }
+        
+        for (NSArray *tradeCardArr in [techDict objectForKey:@"trade_cards"]) {
+            CHTradeCard *card = [NSEntityDescription insertNewObjectForEntityForName:@"CHTradeCard"
+                                                              inManagedObjectContext:ctx];
+            card.tradeCardID = [[tradeCardArr objectAtIndex:0] integerValue];
+            card.name = [tradeCardArr objectAtIndex:1];
+            card.value = [[tradeCardArr objectAtIndex:2] integerValue];
+            card.setLimit = [[tradeCardArr objectAtIndex:3] integerValue];
         }
         
         _game = [NSEntityDescription insertNewObjectForEntityForName:@"CHGame"

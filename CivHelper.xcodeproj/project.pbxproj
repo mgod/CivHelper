@@ -18,13 +18,15 @@
 		754FE0E71363662A0060B0AC /* TechTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 754FE0E61363662A0060B0AC /* TechTableViewCell.m */; };
 		754FE2161363A67E0060B0AC /* CHGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 754FE2151363A67E0060B0AC /* CHGameManager.m */; };
 		754FE3331364702E0060B0AC /* CivHelper.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 754FE3321364702E0060B0AC /* CivHelper.xcdatamodel */; };
-		754FE4241364EA7F0060B0AC /* CHGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 754FE4211364EA7F0060B0AC /* CHGame.m */; };
 		754FE4251364EA7F0060B0AC /* CHTech.m in Sources */ = {isa = PBXBuildFile; fileRef = 754FE4231364EA7F0060B0AC /* CHTech.m */; };
 		754FE4721365D6E20060B0AC /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 754FE4711365D6E20060B0AC /* JSONKit.m */; };
 		754FE4741365D6FE0060B0AC /* Tech.json in Resources */ = {isa = PBXBuildFile; fileRef = 754FE4731365D6FE0060B0AC /* Tech.json */; };
 		754FE5021365E7610060B0AC /* CHTechDiscount.m in Sources */ = {isa = PBXBuildFile; fileRef = 754FE4FF1365E7610060B0AC /* CHTechDiscount.m */; };
 		754FE5031365E7610060B0AC /* CHTechType.m in Sources */ = {isa = PBXBuildFile; fileRef = 754FE5011365E7610060B0AC /* CHTechType.m */; };
 		755A31C7133EEF28000A4488 /* TechListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 755A31C6133EEF28000A4488 /* TechListController.m */; };
+		75F9BAA0136713D600EB9D84 /* CHTradeCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F9BA9F136713D600EB9D84 /* CHTradeCardView.m */; };
+		75F9BAB513674DBA00EB9D84 /* CHGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F9BAB413674DBA00EB9D84 /* CHGame.m */; };
+		75F9BAFC13675C4800EB9D84 /* CHTradeCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F9BAFB13675C4800EB9D84 /* CHTradeCard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,17 +39,15 @@
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28A0AAE50D9B0CCF005BE974 /* CivHelper_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CivHelper_Prefix.pch; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		751833A7133FB7500048AA1D /* TechDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TechDetailView.h; sourceTree = "<group>"; };
-		751833A8133FB7500048AA1D /* TechDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TechDetailView.m; sourceTree = "<group>"; };
-		754FE0AB13635DEA0060B0AC /* CHMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMainViewController.h; sourceTree = "<group>"; };
-		754FE0AC13635DEA0060B0AC /* CHMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMainViewController.m; sourceTree = "<group>"; };
-		754FE0E51363662A0060B0AC /* TechTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TechTableViewCell.h; sourceTree = "<group>"; };
-		754FE0E61363662A0060B0AC /* TechTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TechTableViewCell.m; sourceTree = "<group>"; };
+		751833A7133FB7500048AA1D /* TechDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TechDetailView.h; path = Classes/TechDetailView.h; sourceTree = "<group>"; };
+		751833A8133FB7500048AA1D /* TechDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TechDetailView.m; path = Classes/TechDetailView.m; sourceTree = "<group>"; };
+		754FE0AB13635DEA0060B0AC /* CHMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHMainViewController.h; path = Classes/CHMainViewController.h; sourceTree = "<group>"; };
+		754FE0AC13635DEA0060B0AC /* CHMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHMainViewController.m; path = Classes/CHMainViewController.m; sourceTree = "<group>"; };
+		754FE0E51363662A0060B0AC /* TechTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TechTableViewCell.h; path = Classes/TechTableViewCell.h; sourceTree = "<group>"; };
+		754FE0E61363662A0060B0AC /* TechTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TechTableViewCell.m; path = Classes/TechTableViewCell.m; sourceTree = "<group>"; };
 		754FE2141363A67E0060B0AC /* CHGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGameManager.h; sourceTree = "<group>"; };
 		754FE2151363A67E0060B0AC /* CHGameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGameManager.m; sourceTree = "<group>"; };
 		754FE3321364702E0060B0AC /* CivHelper.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; name = CivHelper.xcdatamodel; path = Resources/CivHelper.xcdatamodel; sourceTree = "<group>"; };
-		754FE4201364EA7F0060B0AC /* CHGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGame.h; sourceTree = "<group>"; };
-		754FE4211364EA7F0060B0AC /* CHGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGame.m; sourceTree = "<group>"; };
 		754FE4221364EA7F0060B0AC /* CHTech.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTech.h; sourceTree = "<group>"; };
 		754FE4231364EA7F0060B0AC /* CHTech.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTech.m; sourceTree = "<group>"; };
 		754FE4701365D6E20060B0AC /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = Dependencies/JSONKit/JSONKit.h; sourceTree = "<group>"; };
@@ -57,8 +57,14 @@
 		754FE4FF1365E7610060B0AC /* CHTechDiscount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTechDiscount.m; sourceTree = "<group>"; };
 		754FE5001365E7610060B0AC /* CHTechType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTechType.h; sourceTree = "<group>"; };
 		754FE5011365E7610060B0AC /* CHTechType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTechType.m; sourceTree = "<group>"; };
-		755A31C5133EEF28000A4488 /* TechListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TechListController.h; sourceTree = "<group>"; };
-		755A31C6133EEF28000A4488 /* TechListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TechListController.m; sourceTree = "<group>"; };
+		755A31C5133EEF28000A4488 /* TechListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TechListController.h; path = Classes/TechListController.h; sourceTree = "<group>"; };
+		755A31C6133EEF28000A4488 /* TechListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TechListController.m; path = Classes/TechListController.m; sourceTree = "<group>"; };
+		75F9BA9E136713D600EB9D84 /* CHTradeCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHTradeCardView.h; path = Classes/CHTradeCardView.h; sourceTree = "<group>"; };
+		75F9BA9F136713D600EB9D84 /* CHTradeCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHTradeCardView.m; path = Classes/CHTradeCardView.m; sourceTree = "<group>"; };
+		75F9BAB313674DBA00EB9D84 /* CHGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGame.h; sourceTree = "<group>"; };
+		75F9BAB413674DBA00EB9D84 /* CHGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGame.m; sourceTree = "<group>"; };
+		75F9BAFA13675C4800EB9D84 /* CHTradeCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTradeCard.h; sourceTree = "<group>"; };
+		75F9BAFB13675C4800EB9D84 /* CHTradeCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTradeCard.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* CivHelper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "CivHelper-Info.plist"; path = "Resources/CivHelper-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,16 +88,10 @@
 			children = (
 				754FE2141363A67E0060B0AC /* CHGameManager.h */,
 				754FE2151363A67E0060B0AC /* CHGameManager.m */,
-				754FE0AB13635DEA0060B0AC /* CHMainViewController.h */,
-				754FE0AC13635DEA0060B0AC /* CHMainViewController.m */,
 				1D3623240D0F684500981E51 /* CivHelperAppDelegate.h */,
 				1D3623250D0F684500981E51 /* CivHelperAppDelegate.m */,
-				751833A7133FB7500048AA1D /* TechDetailView.h */,
-				751833A8133FB7500048AA1D /* TechDetailView.m */,
-				755A31C5133EEF28000A4488 /* TechListController.h */,
-				755A31C6133EEF28000A4488 /* TechListController.m */,
-				754FE0E51363662A0060B0AC /* TechTableViewCell.h */,
-				754FE0E61363662A0060B0AC /* TechTableViewCell.m */,
+				75F9BAA11367184500EB9D84 /* UI */,
+				754FE3771364D4810060B0AC /* Data */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -108,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				080E96DDFE201D6D7F000001 /* Classes */,
-				754FE3771364D4810060B0AC /* Data */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				754FE46C1365D4620060B0AC /* Dependencies */,
@@ -151,17 +150,18 @@
 		754FE3771364D4810060B0AC /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				754FE4201364EA7F0060B0AC /* CHGame.h */,
-				754FE4211364EA7F0060B0AC /* CHGame.m */,
+				75F9BAB313674DBA00EB9D84 /* CHGame.h */,
+				75F9BAB413674DBA00EB9D84 /* CHGame.m */,
 				754FE4221364EA7F0060B0AC /* CHTech.h */,
 				754FE4231364EA7F0060B0AC /* CHTech.m */,
 				754FE4FE1365E7610060B0AC /* CHTechDiscount.h */,
 				754FE4FF1365E7610060B0AC /* CHTechDiscount.m */,
 				754FE5001365E7610060B0AC /* CHTechType.h */,
 				754FE5011365E7610060B0AC /* CHTechType.m */,
+				75F9BAFA13675C4800EB9D84 /* CHTradeCard.h */,
+				75F9BAFB13675C4800EB9D84 /* CHTradeCard.m */,
 			);
 			name = Data;
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		754FE46C1365D4620060B0AC /* Dependencies */ = {
@@ -179,6 +179,24 @@
 				754FE4711365D6E20060B0AC /* JSONKit.m */,
 			);
 			name = JSONKit;
+			sourceTree = "<group>";
+		};
+		75F9BAA11367184500EB9D84 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				754FE0AB13635DEA0060B0AC /* CHMainViewController.h */,
+				754FE0AC13635DEA0060B0AC /* CHMainViewController.m */,
+				75F9BA9E136713D600EB9D84 /* CHTradeCardView.h */,
+				75F9BA9F136713D600EB9D84 /* CHTradeCardView.m */,
+				751833A7133FB7500048AA1D /* TechDetailView.h */,
+				751833A8133FB7500048AA1D /* TechDetailView.m */,
+				755A31C5133EEF28000A4488 /* TechListController.h */,
+				755A31C6133EEF28000A4488 /* TechListController.m */,
+				754FE0E51363662A0060B0AC /* TechTableViewCell.h */,
+				754FE0E61363662A0060B0AC /* TechTableViewCell.m */,
+			);
+			name = UI;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,7 +268,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /usr/bin/python;
-			shellScript = "from os import path\nfrom Scripts import tech_builder\ntech_builder.build_json(path.abspath(\"Resources/Tech.json\"))";
+			shellScript = "from os import path\nimport Scripts\nScripts.build_json(path.abspath(\"Resources/Tech.json\"))";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -267,11 +285,13 @@
 				754FE0E71363662A0060B0AC /* TechTableViewCell.m in Sources */,
 				754FE2161363A67E0060B0AC /* CHGameManager.m in Sources */,
 				754FE3331364702E0060B0AC /* CivHelper.xcdatamodel in Sources */,
-				754FE4241364EA7F0060B0AC /* CHGame.m in Sources */,
 				754FE4251364EA7F0060B0AC /* CHTech.m in Sources */,
 				754FE4721365D6E20060B0AC /* JSONKit.m in Sources */,
 				754FE5021365E7610060B0AC /* CHTechDiscount.m in Sources */,
 				754FE5031365E7610060B0AC /* CHTechType.m in Sources */,
+				75F9BAA0136713D600EB9D84 /* CHTradeCardView.m in Sources */,
+				75F9BAB513674DBA00EB9D84 /* CHGame.m in Sources */,
+				75F9BAFC13675C4800EB9D84 /* CHTradeCard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
