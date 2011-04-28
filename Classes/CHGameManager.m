@@ -80,6 +80,11 @@ static NSString *defaultGame = @"default";
     }
 }
 
++ (CHGame *)game; {
+    return [CHGameManager sharedInstance]->_game;
+}
+
+
 + (void)setGame:(NSString *)gameName; {
     [[CHGameManager sharedInstance] setGame:gameName];
 }
@@ -117,6 +122,14 @@ static NSString *defaultGame = @"default";
     [[CHGameManager sharedInstance]->_game removeTechsObject:tech];
 }
 
++ (NSInteger)techScore {
+    NSInteger total = 0;
+    for (CHTech *tech in [CHGameManager ownedTechs]) {
+        total += [tech.price integerValue];
+    }
+    return total;
+}
+
 #pragma mark -
 #pragma mark Trade card management
 
@@ -147,6 +160,11 @@ static NSString *defaultGame = @"default";
 + (void)removeTradeCard:(CHTradeCard *)card; {
     return [[CHGameManager sharedInstance]->_game removeTradeCard:card];
 }
+
++ (NSInteger)tradeCardTotal; {
+    return [[CHGameManager sharedInstance]->_game totalCardValue];
+}
+
 
 #pragma mark -
 #pragma mark Core Data stack
@@ -197,6 +215,11 @@ static NSString *defaultGame = @"default";
         _game = [NSEntityDescription insertNewObjectForEntityForName:@"CHGame"
                                               inManagedObjectContext:[self managedObjectContext]];
         _game.name = defaultGame;
+        NSInteger tradeCount = [[techDict objectForKey:@"trade_cards"] count];
+        _game.tradeCardCounts = [[NSMutableArray alloc] initWithCapacity:tradeCount];
+        for (NSInteger i = 0; i < tradeCount; ++i) {
+            [_game.tradeCardCounts addObject:[NSNumber numberWithInteger:0]];
+        }
         
         NSError *error = nil;
         [[self managedObjectContext] save:&error];

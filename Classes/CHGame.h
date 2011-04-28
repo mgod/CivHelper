@@ -21,6 +21,7 @@
 - (void)addTradeCard:(CHTradeCard *)card;
 - (void)removeTradeCard:(CHTradeCard *)card;
 - (NSInteger)getCardCount:(CHTradeCard *)card;
+- (NSInteger)totalCardValue;
 
 @end
 

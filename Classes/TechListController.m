@@ -11,6 +11,11 @@
 #import "TechTableViewCell.h"
 #import "CHGameManager.h"
 
+@interface TechListController ()
+-(void)updateTotal;
+@end
+
+
 @implementation TechListController
 
 #pragma mark -
@@ -22,16 +27,20 @@
 
     _techs = [CHGameManager techList];
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self updateTotal];
+    
     self.tableView.allowsSelectionDuringEditing = YES;
     self.tableView.backgroundColor = [UIColor darkGrayColor];
 }
 
 
-/*
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+
+    [self updateTotal];
 }
-*/
+
 /*
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -133,6 +142,14 @@
 #pragma mark -
 #pragma mark Table view delegate
 
+-(void)updateTotal; {
+    NSInteger total = 0;
+    for (CHTech *tech in [CHGameManager ownedTechs]) {
+        total += [tech.price integerValue];
+    }
+    self.navigationItem.title = [NSString stringWithFormat:@"Tech Score %i", total];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     CHTech *tech = [_techs objectAtIndex:indexPath.row];
     if ([[CHGameManager ownedTechs] containsObject:tech]) {
@@ -140,6 +157,8 @@
     } else {
         [CHGameManager buyTech:tech];
     }
+    
+    [self updateTotal];
     
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] 
                   withRowAnimation:UITableViewRowAnimationNone];

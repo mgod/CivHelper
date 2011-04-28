@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 
-@interface CHTradeCardView : UIViewController {
-
+@interface CHTradeCardViewController : UIViewController {
+    NSArray *_tradeCardList;
+    NSArray *_tradeCardViews;
+    UILabel *_totalValue;
 }
 
 @end

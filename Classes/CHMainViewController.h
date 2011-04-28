@@ -9,13 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "TechListController.h"
 #import "TechDetailView.h"
+#import "CHTradeCardViewController.h"
 
 @interface CHMainViewController : UISplitViewController {
+    CHTradeCardViewController *_tradeCardController;
     TechDetailView *_detailViewController;
     TechListController *_listViewController;
     
     UINavigationController *_listNavController;
-    UINavigationController *_detailNavController;
 }
 
 @end

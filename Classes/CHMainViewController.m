@@ -14,16 +14,21 @@
 - (void)loadView {
     
     self.view = [[UIView alloc] init];
-    self.view.backgroundColor = [UIColor blueColor];
+    UIImageView *background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.jpg"]];
+    [self.view addSubview:background];
+    [background release];
     
     _detailViewController = [[TechDetailView alloc] init];
     _listViewController = [[TechListController alloc] init];
+    _tradeCardController = [[CHTradeCardViewController alloc] init];
     
     _listNavController = [[UINavigationController alloc] initWithRootViewController:_listViewController];
-    _detailNavController = [[UINavigationController alloc] initWithRootViewController:_detailViewController];
-
     _listNavController.view.frame = CGRectMake(0, 0, 320, 748);
-    self.viewControllers = [NSArray arrayWithObjects:_listNavController, _detailViewController, nil];
+    _listNavController.navigationBar.tintColor = [UIColor colorWithRed:0.7 green:0.6 blue:0.45 alpha:1.0];
+
+    self.viewControllers = [NSArray arrayWithObjects:_listNavController, _tradeCardController, nil];
+    [self.view sendSubviewToBack:background];
+
 }
 
 @end

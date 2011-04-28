@@ -8,6 +8,7 @@
 
 #import "CHGame.h"
 
+#import "CHGameManager.h"
 #import "CHTech.h"
 #import "CHTradeCard.h"
 
@@ -30,8 +31,10 @@
     if (cardCount < 0 || cardCount > card.setLimit || ![self isValidCard:card])
         return;
     
+    [self willChangeValueForKey:@"tradeCardCounts"];
     [self.tradeCardCounts replaceObjectAtIndex:card.tradeCardID
                                     withObject:[NSNumber numberWithInteger:cardCount]];
+    [self didChangeValueForKey:@"tradeCardCounts"];
 }
 
 - (void)addTradeCard:(CHTradeCard *)card; {
@@ -48,6 +51,15 @@
         return [[self.tradeCardCounts objectAtIndex:card.tradeCardID] integerValue];
     }
     return 0;
+}
+
+
+- (NSInteger)totalCardValue {
+    NSInteger total = 0;
+    for (CHTradeCard *card in [CHGameManager tradeCardList]) {
+        total += [card cardValueForSet:[self getCardCount:card]];
+    }
+    return total;
 }
 
 @end

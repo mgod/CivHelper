@@ -24,9 +24,11 @@
 		754FE5021365E7610060B0AC /* CHTechDiscount.m in Sources */ = {isa = PBXBuildFile; fileRef = 754FE4FF1365E7610060B0AC /* CHTechDiscount.m */; };
 		754FE5031365E7610060B0AC /* CHTechType.m in Sources */ = {isa = PBXBuildFile; fileRef = 754FE5011365E7610060B0AC /* CHTechType.m */; };
 		755A31C7133EEF28000A4488 /* TechListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 755A31C6133EEF28000A4488 /* TechListController.m */; };
-		75F9BAA0136713D600EB9D84 /* CHTradeCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F9BA9F136713D600EB9D84 /* CHTradeCardView.m */; };
+		75F9BAA0136713D600EB9D84 /* CHTradeCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F9BA9F136713D600EB9D84 /* CHTradeCardViewController.m */; };
 		75F9BAB513674DBA00EB9D84 /* CHGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F9BAB413674DBA00EB9D84 /* CHGame.m */; };
 		75F9BAFC13675C4800EB9D84 /* CHTradeCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F9BAFB13675C4800EB9D84 /* CHTradeCard.m */; };
+		75F9BB0D13675ECB00EB9D84 /* CHTradeCardDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F9BB0C13675ECB00EB9D84 /* CHTradeCardDetailView.m */; };
+		75F9BB7C13678D2000EB9D84 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75F9BB7B13678D2000EB9D84 /* background.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,12 +61,15 @@
 		754FE5011365E7610060B0AC /* CHTechType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTechType.m; sourceTree = "<group>"; };
 		755A31C5133EEF28000A4488 /* TechListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TechListController.h; path = Classes/TechListController.h; sourceTree = "<group>"; };
 		755A31C6133EEF28000A4488 /* TechListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TechListController.m; path = Classes/TechListController.m; sourceTree = "<group>"; };
-		75F9BA9E136713D600EB9D84 /* CHTradeCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHTradeCardView.h; path = Classes/CHTradeCardView.h; sourceTree = "<group>"; };
-		75F9BA9F136713D600EB9D84 /* CHTradeCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHTradeCardView.m; path = Classes/CHTradeCardView.m; sourceTree = "<group>"; };
+		75F9BA9E136713D600EB9D84 /* CHTradeCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHTradeCardViewController.h; path = Classes/CHTradeCardViewController.h; sourceTree = "<group>"; };
+		75F9BA9F136713D600EB9D84 /* CHTradeCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHTradeCardViewController.m; path = Classes/CHTradeCardViewController.m; sourceTree = "<group>"; };
 		75F9BAB313674DBA00EB9D84 /* CHGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHGame.h; sourceTree = "<group>"; };
 		75F9BAB413674DBA00EB9D84 /* CHGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHGame.m; sourceTree = "<group>"; };
 		75F9BAFA13675C4800EB9D84 /* CHTradeCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTradeCard.h; sourceTree = "<group>"; };
 		75F9BAFB13675C4800EB9D84 /* CHTradeCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTradeCard.m; sourceTree = "<group>"; };
+		75F9BB0B13675ECB00EB9D84 /* CHTradeCardDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHTradeCardDetailView.h; path = Classes/CHTradeCardDetailView.h; sourceTree = "<group>"; };
+		75F9BB0C13675ECB00EB9D84 /* CHTradeCardDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHTradeCardDetailView.m; path = Classes/CHTradeCardDetailView.m; sourceTree = "<group>"; };
+		75F9BB7B13678D2000EB9D84 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background.jpg; path = Resources/background.jpg; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* CivHelper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "CivHelper-Info.plist"; path = "Resources/CivHelper-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +134,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				75F9BB7D13678D2400EB9D84 /* Images */,
 				754FE4731365D6FE0060B0AC /* Tech.json */,
 				8D1107310486CEB800E47090 /* CivHelper-Info.plist */,
 				754FE3321364702E0060B0AC /* CivHelper.xcdatamodel */,
@@ -186,8 +192,10 @@
 			children = (
 				754FE0AB13635DEA0060B0AC /* CHMainViewController.h */,
 				754FE0AC13635DEA0060B0AC /* CHMainViewController.m */,
-				75F9BA9E136713D600EB9D84 /* CHTradeCardView.h */,
-				75F9BA9F136713D600EB9D84 /* CHTradeCardView.m */,
+				75F9BB0B13675ECB00EB9D84 /* CHTradeCardDetailView.h */,
+				75F9BB0C13675ECB00EB9D84 /* CHTradeCardDetailView.m */,
+				75F9BA9E136713D600EB9D84 /* CHTradeCardViewController.h */,
+				75F9BA9F136713D600EB9D84 /* CHTradeCardViewController.m */,
 				751833A7133FB7500048AA1D /* TechDetailView.h */,
 				751833A8133FB7500048AA1D /* TechDetailView.m */,
 				755A31C5133EEF28000A4488 /* TechListController.h */,
@@ -197,6 +205,14 @@
 			);
 			name = UI;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		75F9BB7D13678D2400EB9D84 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				75F9BB7B13678D2000EB9D84 /* background.jpg */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				754FE4741365D6FE0060B0AC /* Tech.json in Resources */,
+				75F9BB7C13678D2000EB9D84 /* background.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +285,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /usr/bin/python;
-			shellScript = "from os import path\nimport Scripts\nScripts.build_json(path.abspath(\"Resources/Tech.json\"))";
+			shellScript = "import os\nimport sys\nsys.path.append(os.environ[\"PROJECT_DIR\"])\nimport Scripts\nScripts.build_json(os.path.abspath(os.path.join(os.environ[\"PROJECT_DIR\"], \"Resources/Tech.json\")))";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -289,9 +306,10 @@
 				754FE4721365D6E20060B0AC /* JSONKit.m in Sources */,
 				754FE5021365E7610060B0AC /* CHTechDiscount.m in Sources */,
 				754FE5031365E7610060B0AC /* CHTechType.m in Sources */,
-				75F9BAA0136713D600EB9D84 /* CHTradeCardView.m in Sources */,
+				75F9BAA0136713D600EB9D84 /* CHTradeCardViewController.m in Sources */,
 				75F9BAB513674DBA00EB9D84 /* CHGame.m in Sources */,
 				75F9BAFC13675C4800EB9D84 /* CHTradeCard.m in Sources */,
+				75F9BB0D13675ECB00EB9D84 /* CHTradeCardDetailView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,17 +23,20 @@
 
 //State change calls
 + (void)setGame:(NSString *)gameName;
++ (CHGame *)game;
 
 //Tech
 + (NSArray *)techList;
 + (NSSet *)ownedTechs;
 + (void)buyTech:(CHTech *)tech;
 + (void)sellTech:(CHTech *)tech;
++ (NSInteger)techScore;
 
 //Trade cards
 + (NSArray *)tradeCardList;
 + (NSInteger)countForTradeCard:(CHTradeCard *)card;
 + (void)addTradeCard:(CHTradeCard *)card;
 + (void)removeTradeCard:(CHTradeCard *)card;
++ (NSInteger)tradeCardTotal;
 
 @end
