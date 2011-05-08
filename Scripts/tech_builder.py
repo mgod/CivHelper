@@ -1,30 +1,30 @@
 
 data = [
-    #Tech id, name, price, prereq, rules
-    [0,"Pottery", 45, None, """"""],
-    [1,"Cloth Making", 45, None, """"""],
-    [2,"Metalworking", 80, None, """"""],
-    [3,"Agriculture", 110, None, """"""],
-    [4,"Roadbuilding", 140, 6, """"""],
-    [5,"Mining", 180, 6, """"""],
-    [6,"Engineering", 140, None, """"""],
-    [7,"Astronomy", 80, None, """"""],
-    [8,"Coinage", 110, None, """"""],
-    [9,"Medicine", 140, None, """"""],
-    [10,"Mathematics", 230, None, """"""],
-    [11,"Drama & Poetry", 60, None, """"""],
-    [12,"Music", 60, None, """"""],
-    [13,"Architecture", 120, None, """"""],
-    [14,"Literacy", 110, None, """"""],
-    [15,"Law", 170, None, """"""],
-    [16,"Democracy", 200, 15, """"""],
-    [17,"Military", 180, None, """"""],
-    [18,"Philosophy", 240, 15, """"""],
-    [19,"Mysticism", 50, None, """"""],
-    [20,"Deism", 80, None, """"""],
-    [21,"Enlightenment", 150, None, """"""],
-    [22,"Monotheism", 220, 21, """"""],
-    [23,"Theology", 250, 21, """"""]
+    #Tech id, name, price, prereq, attributes
+    [0,"Pottery", 45, None, None],
+    [1,"Cloth Making", 45, None, "Increases ship movement by one area."],
+    [2,"Metalworking", 80, None, "Increased combat effectiveness."],
+    [3,"Agriculture", 110, None, "Increases population limit of areas by one."],
+    [4,"Roadbuilding", 140, 6, "Allows movement through two areas. The first area may not contain units belonging to another player, Barbarian tokens or a Pirate city."],
+    [5,"Mining", 180, 6, "Increases the value of a set consisting of any one of Iron, Silver, Bronze, Gems or Golds."],
+    [6,"Engineering", 140, None, "Increases the effectiveness of attack against and defense of cities."],
+    [7,"Astronomy", 80, None, "Allows movement across open sea areas."],
+    [8,"Coinage", 110, None, "Allows taxation rates to vary from one to three tokens per city."],
+    [9,"Medicine", 140, None, None],
+    [10,"Mathematics", 230, None, None],
+    [11,"Drama & Poetry", 60, None, None],
+    [12,"Music", 60, None, None],
+    [13,"Architecture", 120, None, "Up to half of the cost of building one city each turn may paid by tokens from treasury."],
+    [14,"Literacy", 110, None, None],
+    [15,"Law", 170, None, None],
+    [16,"Democracy", 200, 15, "Prevents tax revolts."],
+    [17,"Military", 180, None, "Allows the holder to build ships and move last."],
+    [18,"Philosophy", 240, 15, None],
+    [19,"Mysticism", 50, None, None],
+    [20,"Deism", 80, None, None],
+    [21,"Enlightenment", 150, None, None],
+    [22,"Monotheism", 220, 21, "Allows the conversion of one adjacent area, provided the victim does not hold Monotheism or Theology."],
+    [23,"Theology", 250, 21, "Immunizes the holder to the effects of Monotheism."]
 ]
 
 types = [
@@ -161,6 +161,12 @@ def load_discounts():
         discounts.append([k[0], k[1], v])
 load_discounts()
 
+def id_for_name(name):
+    for t in data:
+        if t[1] == name:
+            return t[0]
+    raise KeyError("%s not found in techs" % name)
+ 
 def print_debug():
     def type_for_tech(tech):
         t = []
